@@ -65,7 +65,7 @@ window.WEDDING = {
      endpoint — адрес Google Apps Script (см. README.md, раздел «Анкета»).
      Пока он пустой, форма НЕ отправляет данные и честно говорит об этом. */
   rsvp: {
-    endpoint: "",
+    endpoint: "https://script.google.com/macros/s/AKfycbxN8ClJzafbKVn3y8Cn5OX6djuM9gIqzcmAV6SysnrjrOZduFs4Xo0Zj5M9L_tAt7xt/exec",
     title: "Анкета гостя",
     intro: "Пожалуйста, заполните анкету до 31.10.2026",
     deadlineText: "",   // отдельная строка над анкетой; сейчас срок указан в intro, поэтому пусто
