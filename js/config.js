@@ -83,10 +83,16 @@ window.WEDDING = {
       { id: "guests", type: "names", label: "Дополнительные гости",
         hint: "Если придёте не один, впишите каждого по имени и фамилии", addText: "Добавить гостя",
         placeholder: "Имя и фамилия", max: 6, showIf: { field: "attend", value: "Да, с радостью" } },
+      { id: "from", type: "radio", label: "Вы из Волгодонска?", required: true,
+        options: ["Да, я местный(ая)", "Приеду из другого города"], showIf: { field: "attend", value: "Да, с радостью" } },
       { id: "lodging", type: "radio", label: "Нужен ли вам ночлег?", required: true,
-        options: ["Да", "Нет"], showIf: { field: "attend", value: "Да, с радостью" } },
+        options: ["Да", "Нет"], showIf: { field: "from", value: "Приеду из другого города" } },
       { id: "nights", type: "select", label: "Количество ночей", required: true,
         options: ["1", "2"], showIf: { field: "lodging", value: "Да" } },
+      { id: "host", type: "radio", label: "Сможете ли вы принять на ночлег иногородних гостей?", required: true,
+        options: ["Да", "Нет"], showIf: { field: "from", value: "Да, я местный(ая)" } },
+      { id: "hostCount", type: "select", label: "Сколько человек сможете принять?", required: true,
+        options: ["1", "2", "3", "4", "5", "6 и больше"], showIf: { field: "host", value: "Да" } },
       { id: "wishes", type: "textarea", label: "Дополнительные пожелания", placeholder: "Аллергии, пожелания, вопросы…" }
     ]
   },
