@@ -82,7 +82,7 @@ window.WEDDING = {
       // Дополнительные гости — по именам: гость нажимает «Добавить гостя» и вписывает каждого отдельно
       { id: "guests", type: "names", label: "Дополнительные гости",
         hint: "Если придёте не один, впишите каждого по имени и фамилии", addText: "Добавить гостя",
-        placeholder: "Имя и фамилия", max: 6, showIf: { field: "attend", value: "Да, с радостью" } },
+        placeholder: "Имя и фамилия", max: 12, showIf: { field: "attend", value: "Да, с радостью" } },
       { id: "from", type: "radio", label: "Вы из Волгодонска?", required: true,
         options: ["Да, я местный(ая)", "Приеду из другого города"], showIf: { field: "attend", value: "Да, с радостью" } },
       { id: "lodging", type: "radio", label: "Нужен ли вам ночлег?", required: true,
