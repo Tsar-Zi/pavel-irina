@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Павел и Ирина — 21 ноября 2026</title>
+<meta name="description" content="Приглашение на свадьбу Павла и Ирины. 21 ноября 2026, Волгодонск.">
+<meta name="theme-color" content="#898C75">
+<meta property="og:title" content="Павел и Ирина — приглашение на свадьбу">
+<meta property="og:description" content="21 ноября 2026 · Волгодонск">
+<meta property="og:image" content="images/hero.jpg?v=2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/cormorant-garamond-cyrillic-400-normal.woff2">
+<link rel="stylesheet" href="css/style.css?v=18">
+<script>document.documentElement.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-on')}catch(e){}</script>
+</head>
+<body>
+<!-- Вступительное видео: конверт раскрывается и открывает фото, затем плавно появляется сайт -->
+<div class="intro" id="intro" aria-label="Приглашение">
+  <video class="intro-v" id="introVideo" playsinline preload="auto" poster="video/intro-poster.jpg"><source src="video/intro.mp4?v=2" type="video/mp4"></video>
+  <button class="intro-open" id="introOpen" type="button" hidden>Открыть приглашение</button>
+  <button class="intro-skip" id="introSkip" type="button">Пропустить</button>
+</div>
+
+<!-- Общие SVG-элементы: «небрежное» сердечко, кружок вокруг даты, фильтр неровного края -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough-lg" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <symbol id="heart" viewBox="0 0 44 42">
+      <path d="M19.6 12.6C17.8 4.8 8.6 1.4 4.2 7.8 .2 13.8 3.6 21.2 9.8 27.2c3.8 3.8 8.4 6.6 11 12.4 4.6-5.2 13.6-9.6 18.2-16.6 4.6-7 3-17-4.4-19.6-6.4-2.2-12.2 1.6-13.6 8.4z"/>
+    </symbol>
+    <symbol id="ring" viewBox="0 0 48 44">
+      <path d="M28 4.5C39 4 46.5 12.5 45 23.5 43.6 34.5 34 42 23 40.8 11.6 39.5 3.4 30.5 4.4 19.6 5.4 9.4 14.6 2.8 26 4.6c5.2.8 9 3.4 11 7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="page" id="top">
+
+  <!-- 1. ОБЛОЖКА: дата, имена и стих — на самой фотографии -->
+  <section class="hero">
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="images/hero.jpg?v=2" alt="Павел и Ирина" width="1100" height="1734" fetchpriority="high" data-photo="hero" data-zoom>
+        <svg class="hero-line" viewBox="0 0 1100 1734" preserveAspectRatio="none" aria-hidden="true">
+        </svg>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="hero-date display reveal" data-bind="dateShort">21 / 11</p>
+        <h1 class="hero-names script reveal">
+          <span data-bind="groom">Павел</span> <span class="amp">&amp;</span> <span data-bind="bride">Ирина</span>
+        </h1>
+        <blockquote class="quote reveal">
+          <p data-bind="quote">И дам им одно сердце и один путь.</p>
+          <cite data-bind="quoteSource">Иеремия 32:39</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2–3. ПРИВЕТСТВИЕ И КАЛЕНДАРЬ -->
+  <section class="greet">
+    <div class="greet-panel">
+      <div class="reveal">
+        <span class="rule"></span>
+        <p class="welcome" data-bind="welcome">Дорогие гости!<br>Нам будет очень приятно разделить с вами этот особенный день</p>
+        <span class="rule"></span>
+      </div>
+
+      <div class="when reveal">
+        <p class="cal-month display" id="calMonth"></p>
+        <div class="cal" id="calendar" role="table" aria-label="Календарь свадьбы"></div>
+      </div>
+      <svg class="heart greet-heart" aria-hidden="true"><use href="#heart"/></svg>
+    </div>
+  </section>
+
+  <!-- 4. ФОТО НА ПРИРОДЕ -->
+  <section class="nature">
+    <img src="images/photo-2.jpg" alt="Павел и Ирина на скамье в парке" width="1125" height="1500" loading="lazy" data-photo="nature" data-zoom>
+    <svg class="nature-wave" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 46 C 70 6 130 8 200 40 S 335 78 400 30 V80 H0 Z"/>
+    </svg>
+  </section>
+
+  <!-- 5. ЛОКАЦИЯ -->
+  <section class="location">
+    <div class="reveal">
+      <h2 class="script h-xl">Локация</h2>
+      <p class="small" data-bind="locationText">ждём вас по адресу:</p>
+      <address class="place">
+        <span data-bind="cityLine">г. Волгодонск</span>
+        <span data-bind="venue" hidden></span>
+        <span data-bind="address">ул. Заречная, 9</span>
+        <span class="place-time" data-bind="timeLine" hidden>в 11:00</span>
+      </address>
+      <div class="btn-col">
+        <a class="btn btn--ink" id="routeBtn" href="#" target="_blank" rel="noopener">Построить маршрут</a>
+        <button class="btn btn--ink" id="calBtn" type="button">Добавить в календарь</button>
+      </div>
+    </div>
+    <img class="flora flora--ps-l" src="images/flora-l-sage.png" alt="" aria-hidden="true">
+    <img class="flora flora--ps-r" src="images/flora-r-sage.png" alt="" aria-hidden="true">
+    <figure class="arch-photo arch-photo--loc reveal">
+      <img src="images/location.jpg" alt="Павел и Ирина идут вдоль арки на закате" width="1125" height="1500" loading="lazy" data-photo="location" data-zoom>
+    </figure>
+  </section>
+
+  <svg class="wave wave--sage" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40 C 60 78 130 80 200 46 S 340 4 400 40 V80 H0 Z"/>
+  </svg>
+
+  <!-- 6. DRESS CODE -->
+  <section class="sage dress">
+    <div class="reveal">
+      <h2 class="script h-xl">Dress code</h2>
+      <ul class="swatches" id="swatches"></ul>
+      <p class="small" data-bind="dresscodeText"></p>
+    </div>
+    <figure class="arch-photo arch-photo--sm reveal">
+      <img src="images/dresscode.jpg" alt="Букет невесты" width="1125" height="1500" loading="lazy" data-photo="dresscode" data-zoom>
+    </figure>
+    <div class="reveal rsvp-cta">
+      <h2 class="script h-lg" data-bind="rsvpTitle">Анкета гостя</h2>
+      <p class="small" data-bind="rsvpIntro">Пожалуйста, заполните анкету, чтобы мы знали, что вы придёте.</p>
+      <a class="btn btn--line" href="#rsvp" data-scroll>Заполнить</a>
+    </div>
+  </section>
+
+  <!-- 7. АНКЕТА -->
+  <section class="sage rsvp" id="rsvp">
+    <div class="rsvp-inner reveal">
+      <p class="rsvp-deadline display" data-bind="rsvpDeadline"></p>
+      <form id="rsvpForm" novalidate></form>
+      <div class="rsvp-done" id="rsvpDone" hidden tabindex="-1">
+        <svg class="heart" aria-hidden="true"><use href="#heart"/></svg>
+        <h3 class="script h-lg" data-bind="rsvpSuccessTitle">Спасибо!</h3>
+        <p class="small" data-bind="rsvpSuccessText">Ваш ответ получен.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ФОТО И ОБРАТНЫЙ ОТСЧЁТ -->
+  <section class="sage countdown">
+    <figure class="cd-photo">
+      <img src="images/countdown.jpg" alt="Павел и Ирина у колонн на фоне заката" width="1125" height="1500" loading="lazy" data-photo="countdown" data-zoom>
+      <div class="cd-wrap">
+        <p class="cd-lead script">Увидимся через…</p>
+        <div class="cd" id="countdown" role="timer" aria-label="Время до свадьбы">
+        <div class="dial" data-unit="d"><div class="dial-face"><svg viewBox="-50 -50 100 100" aria-hidden="true"></svg><b id="cdD">0</b></div><span>дней</span></div>
+        <div class="dial" data-unit="h"><div class="dial-face"><svg viewBox="-50 -50 100 100" aria-hidden="true"></svg><b id="cdH">00</b></div><span>часов</span></div>
+        <div class="dial" data-unit="m"><div class="dial-face"><svg viewBox="-50 -50 100 100" aria-hidden="true"></svg><b id="cdM">00</b></div><span>минут</span></div>
+        <div class="dial" data-unit="s"><div class="dial-face"><svg viewBox="-50 -50 100 100" aria-hidden="true"></svg><b id="cdS">00</b></div><span>секунд</span></div>
+      </div>
+        <svg class="cd-heart" aria-hidden="true"><use href="#heart"/></svg>
+        <p class="cd-tail">до нашего<br>счастливого дня</p>
+      </div>
+      <p class="cd-done script" id="cdDone" hidden></p>
+    </figure>
+  </section>
+
+  <!-- 9. ДЕТАЛИ -->
+  <section class="details">
+    <div class="reveal">
+      <h2 class="script h-xl">Детали</h2>
+      <h3 class="eyebrow">Telegram</h3>
+      <p class="small" data-bind="telegramText"></p>
+      <a class="btn btn--ink" id="tgBtn" href="#" target="_blank" rel="noopener">Перейти</a>
+    </div>
+  </section>
+
+  <!-- 10. ФИНАЛ: слова о любви на последнем фото -->
+  <section class="final">
+    <div class="film reveal">
+      <div class="film-frame">
+        <video controls autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" aria-label="Видео Павла и Ирины">
+          <source src="video/wedding.mp4" type="video/mp4">
+        </video>
+        <div class="film-text">
+          <svg class="heart" aria-hidden="true"><use href="#heart"/></svg>
+          <p class="final-title script" data-bind="finalTitle"></p>
+        </div>
+      </div>
+      <p class="final-names display"><span data-bind="groom">Павел</span> &amp; <span data-bind="bride">Ирина</span><span class="final-date" data-bind="dateDots">21.11.2026</span></p>
+    </div>
+    <div class="made reveal">
+      <span class="made-line" aria-hidden="true"></span>
+            <a class="made-brand" href="https://t.me/tvoya_prigloska" target="_blank" rel="noopener">
+        <span class="made-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-.9.35-.88 1.6.03 1.9l4.7 1.5 1.8 5.6c.2.6.97.8 1.43.37l2.6-2.4 4.8 3.5c.6.45 1.45.1 1.6-.64L22.9 4.9c.17-.9-.7-1.6-1.4-1.3zM9.2 13.4l8.4-5.3c.25-.15.45.18.25.36l-6.9 6.2-.27 3-1.5-4.3z"/></svg></span>
+        <span class="made-handle">tvoya_prigloska</span>
+        <span class="made-sub">сайты-приглашения на заказ</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<button class="music" id="musicBtn" type="button" aria-label="Включить музыку" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+</button>
+<audio id="audio" preload="none" loop></audio>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+  <button class="lb-close" type="button" aria-label="Закрыть">×</button>
+  <img alt="">
+</div>
+
+<script src="js/config.js?v=17"></script>
+<script src="js/main.js?v=17"></script>
+</body>
+</html>
