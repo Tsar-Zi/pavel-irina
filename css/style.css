@@ -363,3 +363,9 @@ input:focus-visible, textarea:focus-visible, select:focus-visible { outline: non
 .made-ico svg { width: 15px; height: 15px; }
 .made-handle { font-size: 1rem; letter-spacing: .14em; padding-bottom: 4px; }
 .made-sub { font-size: .6rem; letter-spacing: .22em; opacity: .7; }
+
+/* ---------- Ведущий (блок «Детали») ---------- */
+.host { margin-top: 46px; }
+.host-line { display: block; width: 56px; height: 1px; margin: 0 auto; background: var(--rose); }
+.host .eyebrow { margin-top: 28px; margin-bottom: 14px; }
+.host-name { font: 400 1rem/1.3 var(--f-text); letter-spacing: .08em; margin: 12px 0 0; opacity: .7; font-size: .95rem; }
