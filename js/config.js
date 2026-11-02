@@ -67,7 +67,7 @@ window.WEDDING = {
   rsvp: {
     endpoint: "https://script.google.com/macros/s/AKfycbwue91IQt85i6bWYpS3X2csLYruxrqlMpVl1-LC95xZp7uWk3DrIUXXx-IGtgb2Y_sH/exec",
     title: "Анкета гостя",
-    intro: "Пожалуйста, заполните анкету до 31.10.2026",
+    intro: "Пожалуйста, заполните анкету до 07.11.2026",
     deadlineText: "",   // отдельная строка над анкетой; сейчас срок указан в intro, поэтому пусто
     submitText: "Отправить",
     successTitle: "Спасибо!",
